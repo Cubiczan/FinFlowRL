@@ -344,6 +344,11 @@ FinFlowRL/
 │   ├── test_metrics.py
 │   ├── test_pretrain.py
 │   └── test_config.py
+├── rust/                        # Rust port of the config subsystem (see below)
+│   ├── Cargo.toml
+│   └── src/
+│       ├── lib.rs
+│       └── config.rs
 ├── scripts/                     # CLI entry points
 │   ├── demo.py
 │   ├── train.py
@@ -353,6 +358,17 @@ FinFlowRL/
 ├── LICENSE
 └── README.md
 ```
+
+### Rust status (`rust/`)
+
+`rust/` is a Rust port of the **configuration subsystem** only: `rust/src/config.rs`
+mirrors `src/finflowrl/config/settings.py` and ships with unit tests. It is kept
+green under stable Rust (`cargo check --locked` / `cargo test --locked`, enforced by CI).
+
+We are deliberately **not** porting the rest of the system. The simulator, environment,
+expert, and training loops (`src/finflowrl/`) are deterministic Python
+research/accounting code, not hot paths — a full Rust port would add maintenance
+risk with zero user-visible benefit.
 
 ---
 
