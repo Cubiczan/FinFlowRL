@@ -4,12 +4,9 @@ version = "0.1.0"
 edition = "2021"
 authors = ["FinFlowRL Team"]
 license = "MIT"
-description = "Flow-Matching Reinforcement Learning for High-Frequency Trading — pure-Rust port"
+description = "Flow-Matching Reinforcement Learning for High-Frequency Trading — Rust port of the configuration subsystem (the full implementation lives in Python under src/finflowrl/)"
 
 [dependencies]
-ndarray = { workspace = true }
-rand = { workspace = true }
-rand_distr = { workspace = true }
-serde = { workspace = true }
-serde_json = { workspace = true }
-thiserror = { workspace = true }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "1"
